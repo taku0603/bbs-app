@@ -92,15 +92,27 @@
             </div>
         </div>
     @endforeach
-    {{-- 削除ボタン --}}
-    <form class="flex justify-end mt-5" action="/" method="POST">
-        @csrf
-        <input class="border rounded px-2 flex-auto" type="text" name="reply_message">
-        <input class="px-2 py-1 ml-2 rounded bg-green-600 text-white font-bold link-hover cursor-pointer"
-               type="submit" value="返信">
-        <input class="px-2 py-1 ml-2 rounded bg-red-500 text-white font-bold link-hover cursor-pointer"
-               type="submit" value="削除">
-    </form>
+    {{-- ボタン --}}
+    <div class="flex mt-5">
+        {{-- 返信 --}}
+        <form class="flex justify-end flex-auto" action="{{route('reply.store')}}" method="POST">
+            @csrf
+            <input type="hidden" name="thread_id" value={{$thread->id}}>
+            <input class="border rounded px-2 flex-initial" type="text" name="user_name" placeholder="UserName"
+                   required>
+            <input class="border rounded px-2 ml-2 flex-auto" type="text" name="message" placeholder="ReplyMessage"
+                   required>
+            <input class="px-2 py-1 ml-2 rounded bg-green-600 text-white font-bold link-hover cursor-pointer"
+                   type="submit" value="返信">
+        </form>
+        {{-- 削除 --}}
+        <form action="{{route('thread.destroy', ['thread'=>$thread->id])}}" method="post">
+            @csrf
+            @method('DELETE')
+            <input class="px-2 py-1 ml-2 rounded bg-red-500 text-white font-bold link-hover cursor-pointer"
+                   type="submit" value="削除" onclick="return Check()">
+        </form>
+    </div>
     {{-- 返信 --}}
     <hr class="mt-2 m-auto">
     <div class="flex justify-end">
@@ -151,3 +163,11 @@
 <p class="flex justify-center text-blue-300 mt-1 mb-5 link-hover cursor-pointer">prev 1 2 3 4 next</p>
 </body>
 </html>
+
+{{-- スレッド削除の確認 --}}
+<script type="text/javascript">
+    function Check(){
+        var checked = confirm("本当に削除しますか？");
+        if (checked == true) { return true; } else { return false; }
+    }
+</script>

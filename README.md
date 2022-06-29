@@ -68,3 +68,13 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 TailwindというCSSのFWつかうよー
 初心者でもできるやさしいLaravel入門 Part.3 Tailwindを使ってみよう(laravel 8.x対応) - SEの休日 https://uedive.net/2021/5608/laravel8x-tailwind/
 
+マイグレーションファイルの作成
+php artisan make:migration create_threads_table(テーブル名)
+マイグレーションを実行してテーブルを作成
+php artisan migrate
+
+xampp-install-mac https://www.image-pit.com/pdf/xampp-install-mac.pdf
+XAMPPでDB周り修正
+
+マイグレーション時エラーでまくってた原因はこれっぽい
+Laravel5.8は、マイグレーションスタブの主キーのデフォルトが、increments()からbigIncrements()になった - Qiita https://qiita.com/fuubit/items/17f3eb306c64ede163d2

@@ -65,4 +65,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 2022/06/29
 【挑戦】Laravel 8 で簡易的な掲示板を作ってみた https://zenn.dev/dainaka/scraps/14be8378905118
+TailwindというCSSのFWつかうよー
 初心者でもできるやさしいLaravel入門 Part.3 Tailwindを使ってみよう(laravel 8.x対応) - SEの休日 https://uedive.net/2021/5608/laravel8x-tailwind/
+

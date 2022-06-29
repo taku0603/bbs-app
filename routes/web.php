@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+// 掲示板のトップページにリダイレクト
+Route::redirect('/', '/bbs');
+Route::view('/bbs', '/bbs/index');

@@ -39,6 +39,8 @@ class ReplyController extends Controller
         $replies = new Reply;
         $form = $request->all();
         $replies->fill($form)->save();
+
+        // 掲示板ページへリダイレクト
         return redirect('/');
     }
 

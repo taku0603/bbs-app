@@ -15,9 +15,7 @@ use App\Http\Controllers\ReplyController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-// 掲示板のトップページにリダイレクト
-Route::resource('/bbs', ThreadController::class);
+Route::redirect('/', '/thread');
+Route::resource('/thread', ThreadController::class);
 Route::resource('/reply', ReplyController::class);
+Route::post('/thread/search', [ThreadController::class, 'search'])->name('thread.search');
